@@ -5,7 +5,7 @@ pipeline {
 
 	stage('PULL') {
 		steps{
-			git 'https://github.com/HarshCraft/studentapp-project.git'
+			git 'https://github.com/HarshCraft/Auction-platform-jenkins.git'
 		}
 	}
 	stage('BULD') {
