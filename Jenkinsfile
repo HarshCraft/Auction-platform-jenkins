@@ -10,13 +10,12 @@ pipeline {
 	}
 	stage('BULD') {
 		steps{
-		dir('backend') {
 			sh'''
 			mvn clean package -DskipTests
 			'''
 			}
 		}
-	}
+	
 	 stage('TEST') {
             steps {
                 withSonarQubeEnv('sonar-token1') {
