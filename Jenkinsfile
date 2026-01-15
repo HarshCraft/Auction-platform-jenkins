@@ -11,7 +11,7 @@ pipeline {
 	stage('BUILD') {
              steps {
         	sh '''
-		cd backend
+		cd frontend
         	npm install
         	npm run build
         	'''
