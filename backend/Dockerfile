@@ -9,7 +9,7 @@ COPY package.json ./
 RUN npm install --production
 
 # Copy backend code
-COPY ./
+COPY . ./
 
 # Expose port your app runs on (e.g., 3000)
 EXPOSE 3000
