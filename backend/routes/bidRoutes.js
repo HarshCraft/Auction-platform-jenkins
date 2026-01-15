@@ -1,24 +1,23 @@
 const express = require("express");
 const {
-    createBid,
-    getBids,
-    getBidById,
-    updateBid,
-    deleteBid,
-} = require("../controllers/bidController"); // make sure these exist in bidController.js
+  createBid,
+  getBids,
+  getBidById,
+  updateBid,
+  deleteBid,
+} = require("../controllers/bidController");
 
-const { authMiddleware } = require("../middleware/authMiddleware"); // destructure here!
+const { authMiddleware } = require("../middleware/authMiddleware"); // destructured
 
 const router = express.Router();
 
-// Routes with proper callback functions
 router.route("/")
-    .get(getBids)
-    .post(authMiddleware, createBid); // authMiddleware + controller function
+  .get(getBids)
+  .post(authMiddleware, createBid);
 
 router.route("/:id")
-    .get(authMiddleware, getBidById)
-    .put(authMiddleware, updateBid)
-    .delete(authMiddleware, deleteBid);
+  .get(authMiddleware, getBidById)
+  .put(authMiddleware, updateBid)
+  .delete(authMiddleware, deleteBid);
 
 module.exports = router;
