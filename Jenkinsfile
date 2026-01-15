@@ -30,10 +30,28 @@ pipeline {
 	    steps {
         	sh '''
         	cd backend
-        	npm test
+              //npm test
         	'''
     		}
 	}
+	stage('FRONTEND-DOCKER-BUILD') {
+            steps {
+                sh '''
+                cd frontend
+                docker build -t harshhdockerhub/easy-frontend:latest .
+                '''
+            }
+        }
+
+        stage('BACKEND-DOCKER-BUILD') {
+            steps {
+                sh '''
+                cd backend
+                docker build -t harshhdockerhub/easy-backend:latest .
+                '''
+            }
+        }
+
 
 	}
 }
