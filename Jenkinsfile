@@ -17,5 +17,14 @@ pipeline {
         	'''
     		}
 	}
+	stage('BACKEND INSTALL') {
+            steps {
+                sh '''
+                export PATH=$PATH:/usr/bin
+                cd backend
+                npm install
+                '''
+            }
+        }
 	}
 }
