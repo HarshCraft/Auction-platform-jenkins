@@ -13,7 +13,8 @@ services:
     image: harshhdockerhub/auction-backend:latest
     container_name: auction-backend
     environment:
-      - MONGODB_URI=mongodb://auction-mongodb:27017/auctiondb
+      MONGODB_URI: mongodb://auction-mongodb:27017/auctiondb
+      PORT: 5000
     depends_on:
       - mongodb
     ports:
