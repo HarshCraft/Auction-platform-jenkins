@@ -8,35 +8,13 @@ pipeline {
 			git 'https://github.com/HarshCraft/Auction-platform-jenkins.git'
 		}
 	}
-	stage('BULD') {
-		steps{
-			sh'''
-			mvn clean package -DskipTests
-			'''
-			}
-		}
-	
-	 stage('TEST') {
-            steps {
-                withSonarQubeEnv('sonar-token1') {
-                    dir('backend') {
-                        sh '''
-                            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-                              -Dsonar.projectKey=sonarp \
-                              -Dsonar.projectName=sonarp
-                        '''
-                    }
-                }
-            }
-        }
-
-stage('QUALITY-GATES') {
-            steps {
-                timeout(time: 5, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }	 
-
+	stage('BUILD') {
+             steps {
+        	sh '''
+        	npm install
+        	npm run build
+        	'''
+    		}
 	}
-} 
+	}
+}
