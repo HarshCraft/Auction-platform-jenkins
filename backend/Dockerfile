@@ -1,18 +1,12 @@
-FROM node:20-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package.json ./
+RUN npm install
 
-# Install dependencies
-RUN npm install --production
+COPY . .
 
-# Copy backend code
-COPY . ./
+EXPOSE 8080
 
-# Expose port your app runs on (e.g., 3000)
-EXPOSE 3000
-
-# Run the backend
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
