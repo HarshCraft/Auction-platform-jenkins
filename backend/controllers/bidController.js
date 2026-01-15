@@ -1,4 +1,4 @@
-const Bid = require("../models/bidModel"); // your bid model
+const Bid = require('../models/bidModel'); // your bid model
 
 // Create a new bid
 const createBid = async (req, res) => {

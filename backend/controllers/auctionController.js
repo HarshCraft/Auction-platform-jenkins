@@ -1,6 +1,6 @@
-const AuctionItem = require("../models/AuctionItem");
-const Bid = require("../models/Bid");
-const User = require("../models/User");
+const AuctionItem = require('../models/auctionItemModel');
+const Bid = require('../models/bidModel');
+const User = require('../models/userModel');
 const jwt = require("jsonwebtoken");
 
 const createAuctionItem = async (req, res) => {
