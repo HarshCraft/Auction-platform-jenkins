@@ -35,7 +35,7 @@ pipeline {
             steps {
                 sh '''
                 cd frontend
-                docker build -t harshhdockerhub/easy-frontend:latest .
+                docker build -t harshhdockerhub/auction-frontend:latest .
                 '''
             }
         }
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh '''
                 cd backend
-                docker build -t harshhdockerhub/easy-backend:latest .
+                docker build -t harshhdockerhub/auction-backend:latest .
                 '''
             }
         }
