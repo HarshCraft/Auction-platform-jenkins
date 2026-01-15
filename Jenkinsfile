@@ -26,5 +26,14 @@ pipeline {
                 '''
             }
         }
+	stage('BACKEND TEST') {
+	    steps {
+        	sh '''
+        	cd backend
+        	npm test
+        	'''
+    		}
+	}
+
 	}
 }
