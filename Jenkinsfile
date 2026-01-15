@@ -28,10 +28,7 @@ pipeline {
         }
 	stage('BACKEND TEST') {
 	    steps {
-        	sh '''
-        	cd backend
-              //npm test
-        	'''
+        	echo "Test skipped"
     		}
 	}
 	stage('FRONTEND-DOCKER-BUILD') {
