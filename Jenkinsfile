@@ -55,7 +55,16 @@ pipeline {
                 docker push harshhdockerhub/auction-backend:latest
                 '''
            }
-	}		
+	}
+	stage('Deploy with Docker Compose') {
+            steps {
+                sh '''
+                docker compose pull
+                docker compose down
+                docker compose up -d
+                '''
+            }
+        }		
 
 	}
 }

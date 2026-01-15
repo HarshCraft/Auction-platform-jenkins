@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: auction-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: auctiondb
+
+  backend:
+    image: harshhdockerhub/auction-backend:latest
+    container_name: auction-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/auctiondb
+    depends_on:
+      - mongodb
+
+  frontend:
+    image: harshhdockerhub/auction-frontend:latest
+    container_name: auction-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
